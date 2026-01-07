@@ -28,6 +28,9 @@ tmux set -g pane-border-status off
 tmux set -g status-style bg="${THEME[background]}"
 tmux set -g popup-border-style "fg=${THEME[blue]}"
 
+# Disable activity highlighting (handled in window-status-format)
+tmux set -g window-status-activity-style "none"
+
 TMUX_VARS="$(tmux show -g)"
 
 default_window_id_style="digital"
