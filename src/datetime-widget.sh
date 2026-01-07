@@ -54,4 +54,5 @@ fi
 date_string="$(date +"$date_string")"
 time_string="$(date +"$time_string")"
 
-echo "$RESET#[fg=${THEME[foreground]},bg=${THEME[bblack]}] $date_string $separator$time_string "
+# Powerline pill with clock icon
+echo "#[fg=${THEME[bblack]},bg=${THEME[background]}]#[fg=${THEME[blue]},bg=${THEME[bblack]}]  #[fg=${THEME[foreground]},bg=${THEME[bblack]}]$date_string $separator$time_string "

@@ -37,19 +37,19 @@ fi
 UNTRACKED_COUNT="$(git ls-files --other --exclude-standard | wc -l | bc)"
 
 if [[ $CHANGED_COUNT -gt 0 ]]; then
-  STATUS_CHANGED="${RESET}#[fg=${THEME[yellow]},bg=${THEME[background]},bold] ${CHANGED_COUNT} "
+  STATUS_CHANGED="#[fg=${THEME[yellow]},bg=${THEME[bblack]},bold]  ${CHANGED_COUNT} "
 fi
 
 if [[ $INSERTIONS_COUNT -gt 0 ]]; then
-  STATUS_INSERTIONS="${RESET}#[fg=${THEME[green]},bg=${THEME[background]},bold] ${INSERTIONS_COUNT} "
+  STATUS_INSERTIONS="#[fg=${THEME[green]},bg=${THEME[bblack]},bold]  ${INSERTIONS_COUNT} "
 fi
 
 if [[ $DELETIONS_COUNT -gt 0 ]]; then
-  STATUS_DELETIONS="${RESET}#[fg=${THEME[red]},bg=${THEME[background]},bold] ${DELETIONS_COUNT} "
+  STATUS_DELETIONS="#[fg=${THEME[red]},bg=${THEME[bblack]},bold]  ${DELETIONS_COUNT} "
 fi
 
 if [[ $UNTRACKED_COUNT -gt 0 ]]; then
-  STATUS_UNTRACKED="${RESET}#[fg=${THEME[black]},bg=${THEME[background]},bold] ${UNTRACKED_COUNT} "
+  STATUS_UNTRACKED="#[fg=${THEME[white]},bg=${THEME[bblack]},bold]  ${UNTRACKED_COUNT} "
 fi
 
 # Determine repository sync status
@@ -74,22 +74,25 @@ if [[ $SYNC_MODE -eq 0 ]]; then
   fi
 fi
 
-# Set the status indicator based on the sync mode
+# Set the status indicator based on the sync mode (powerline pill style)
+PILL_START="#[fg=${THEME[bblack]},bg=${THEME[background]}]"
+PILL_END="#[fg=${THEME[bblack]},bg=${THEME[background]}]"
+
 case "$SYNC_MODE" in
 1)
-  REMOTE_STATUS="$RESET#[bg=${THEME[background]},fg=${THEME[bred]},bold]▒ 󱓎"
+  REMOTE_ICON="#[fg=${THEME[bred]},bg=${THEME[bblack]},bold] 󱓎"
   ;;
 2)
-  REMOTE_STATUS="$RESET#[bg=${THEME[background]},fg=${THEME[red]},bold]▒ 󰛃"
+  REMOTE_ICON="#[fg=${THEME[red]},bg=${THEME[bblack]},bold] 󰛃"
   ;;
 3)
-  REMOTE_STATUS="$RESET#[bg=${THEME[background]},fg=${THEME[magenta]},bold]▒ 󰛀"
+  REMOTE_ICON="#[fg=${THEME[magenta]},bg=${THEME[bblack]},bold] 󰛀"
   ;;
 *)
-  REMOTE_STATUS="$RESET#[bg=${THEME[background]},fg=${THEME[green]},bold]▒ "
+  REMOTE_ICON="#[fg=${THEME[green]},bg=${THEME[bblack]},bold] "
   ;;
 esac
 
 if [[ -n $BRANCH ]]; then
-  echo "$REMOTE_STATUS $RESET$BRANCH $STATUS_CHANGED$STATUS_INSERTIONS$STATUS_DELETIONS$STATUS_UNTRACKED"
+  echo "${PILL_START}${REMOTE_ICON} #[fg=${THEME[foreground]},bg=${THEME[bblack]},nobold]$BRANCH $STATUS_CHANGED$STATUS_INSERTIONS$STATUS_DELETIONS$STATUS_UNTRACKED${PILL_END}"
 fi

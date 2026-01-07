@@ -11,7 +11,16 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/.."
 # Get values from tmux config or set defaults
 BATTERY_NAME=$(tmux show-option -gv @jellybeans-tmux_battery_name 2>/dev/null)
 BATTERY_LOW=$(tmux show-option -gv @jellybeans-tmux_battery_low_threshold 2>/dev/null)
-RESET="#[fg=brightwhite,bg=#100f0f,nobold,noitalics,nounderscore,nodim]"
+
+# Jellybeans colors
+BG="#100f0f"
+BG_PILL="#1c1b1a"
+FG="#e8e8d3"
+RED="#B05050"
+GREEN="#99ad6a"
+YELLOW="#dad085"
+
+RESET="#[fg=$FG,bg=$BG,nobold,noitalics,nounderscore,nodim]"
 
 DISCHARGING_ICONS=("󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹")
 CHARGING_ICONS=("󰢜" "󰂆" "󰂇" "󰂈" "󰢝" "󰂉" "󰢞" "󰂊" "󰂋" "󰂅")
@@ -111,12 +120,12 @@ esac
 
 # Set color based on battery percentage
 if [[ $BATTERY_PERCENTAGE -lt $BATTERY_LOW ]]; then
-  color="#[fg=red,bg=default,bold]"
+  icon_color="$RED"
 elif [[ $BATTERY_PERCENTAGE -ge 100 ]]; then
-  color="#[fg=green,bg=default]"
+  icon_color="$GREEN"
 else
-  color="#[fg=yellow,bg=default]"
+  icon_color="$YELLOW"
 fi
 
-# Print the battery status with some extra spaces for padding
-echo "${color}░ ${ICON}${RESET} #[bg=default] ${BATTERY_PERCENTAGE}% "
+# Powerline pill with battery icon
+echo "#[fg=$BG_PILL,bg=$BG]#[fg=$icon_color,bg=$BG_PILL,bold] ${ICON} #[fg=$FG,bg=$BG_PILL,nobold]${BATTERY_PERCENTAGE}% #[fg=$BG_PILL,bg=$BG]"
