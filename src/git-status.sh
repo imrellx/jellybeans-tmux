@@ -85,6 +85,6 @@ case "$SYNC_MODE" in
 esac
 
 if [[ -n $BRANCH ]]; then
-  # Blue text for branch name to match lualine style
-  echo "${PILL_START}${REMOTE_ICON} #[fg=${THEME[blue]},bg=${THEME[bblack]},nobold]$BRANCH $STATUS_CHANGED$STATUS_INSERTIONS$STATUS_DELETIONS$STATUS_UNTRACKED${PILL_END}"
+  # Teal text for branch name to match lualine style
+  echo "${PILL_START}${REMOTE_ICON} #[fg=#2DA099,bg=${THEME[bblack]},nobold]$BRANCH $STATUS_CHANGED$STATUS_INSERTIONS$STATUS_DELETIONS$STATUS_UNTRACKED${PILL_END}"
 fi

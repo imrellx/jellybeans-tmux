@@ -9,8 +9,8 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/.."
 . "${ROOT_DIR}/lib/coreutils-compat.sh"
 
 PATH_FORMAT=$(tmux show-option -gv @jellybeans-tmux_path_format 2>/dev/null) # full | relative
-# Blue text to match lualine style
-RESET="#[fg=#8197bf,bg=#1c1b1a,nobold,noitalics,nounderscore,nodim]"
+# Teal text to match lualine style
+RESET="#[fg=#2DA099,bg=#1c1b1a,nobold,noitalics,nounderscore,nodim]"
 
 current_path="${1}"
 default_path_format="relative"
