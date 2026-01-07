@@ -76,8 +76,8 @@ tmux set -g status-left "#[fg=${THEME[bblack]},bg=${THEME[blue]},bold] $os_icon#
 #+--- Windows ---+
 # Focus (active window with pill shape - slightly lighter bg for visibility)
 tmux set -g window-status-current-format "#[fg=#303030,bg=${THEME[background]}]#[fg=${THEME[green]},bg=#303030] #{?#{==:#{pane_current_command},ssh},󰣀 ,  }#[fg=${THEME[foreground]},bold,nodim]$window_number#W#[nobold]#{?window_zoomed_flag, $zoom_number, $custom_pane} #[fg=#303030,bg=${THEME[background]}]"
-# Unfocused (inactive windows, no pill)
-tmux set -g window-status-format "$RESET#[fg=${THEME[foreground]},dim] #{?#{==:#{pane_current_command},ssh},󰣀 ,  }$window_number#W#[nobold]#{?window_zoomed_flag, $zoom_number, $custom_pane}#[fg=${THEME[yellow]}]#{?window_last_flag, 󰁯, } "
+# Unfocused (inactive windows, no pill) - cyan/blue text like lualine
+tmux set -g window-status-format "$RESET#[fg=${THEME[blue]}] #{?#{==:#{pane_current_command},ssh},󰣀 ,  }$window_number#W#[nobold]#{?window_zoomed_flag, $zoom_number, $custom_pane}#[fg=${THEME[yellow]}]#{?window_last_flag, 󰁯, } "
 
 #+--- Bars RIGHT ---+
 tmux set -g status-right "$battery_status$current_path$cmus_status$netspeed$git_status$wb_git_status$date_and_time"
