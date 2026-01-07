@@ -64,10 +64,11 @@ date_and_time="#($SCRIPTS_PATH/datetime-widget.sh)"
 current_path="#($SCRIPTS_PATH/path-widget.sh #{pane_current_path})"
 battery_status="#($SCRIPTS_PATH/battery-widget.sh)"
 hostname="#($SCRIPTS_PATH/hostname-widget.sh)"
+os_icon="#($SCRIPTS_PATH/os-icons.sh)"
 
 #+--- Bars LEFT ---+
-# Session name
-tmux set -g status-left "#[fg=${THEME[bblack]},bg=${THEME[blue]},bold] #{?client_prefix,󰠠 ,#[dim]󰤂 }#[bold,nodim]#S$hostname "
+# OS icon + Session name
+tmux set -g status-left "#[fg=${THEME[bblack]},bg=${THEME[blue]},bold] $os_icon#{?client_prefix,󰠠 ,}#S$hostname "
 
 #+--- Windows ---+
 # Focus
