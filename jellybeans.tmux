@@ -74,8 +74,8 @@ os_icon="#($SCRIPTS_PATH/os-icons.sh)"
 tmux set -g status-left "#[fg=${THEME[bblack]},bg=${THEME[blue]},bold] $os_icon#{?client_prefix,󰠠 ,}#S$hostname #[fg=${THEME[blue]},bg=${THEME[background]},nobold]"
 
 #+--- Windows ---+
-# Focus (active window with pill shape)
-tmux set -g window-status-current-format "#[fg=${THEME[bblack]},bg=${THEME[background]}]#[fg=${THEME[green]},bg=${THEME[bblack]}] #{?#{==:#{pane_current_command},ssh},󰣀 ,  }#[fg=${THEME[foreground]},bold,nodim]$window_number#W#[nobold]#{?window_zoomed_flag, $zoom_number, $custom_pane} #[fg=${THEME[bblack]},bg=${THEME[background]}]"
+# Focus (active window with pill shape - blue background like session pill)
+tmux set -g window-status-current-format "#[fg=${THEME[blue]},bg=${THEME[background]}]#[fg=${THEME[bblack]},bg=${THEME[blue]}] #{?#{==:#{pane_current_command},ssh},󰣀 ,  }#[fg=${THEME[bblack]},bold,nodim]$window_number#W#[nobold]#{?window_zoomed_flag, $zoom_number, $custom_pane} #[fg=${THEME[blue]},bg=${THEME[background]}]"
 # Unfocused (inactive windows, no pill)
 tmux set -g window-status-format "$RESET#[fg=${THEME[foreground]},dim] #{?#{==:#{pane_current_command},ssh},󰣀 ,  }$window_number#W#[nobold]#{?window_zoomed_flag, $zoom_number, $custom_pane}#[fg=${THEME[yellow]}]#{?window_last_flag, 󰁯, } "
 
