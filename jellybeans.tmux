@@ -70,8 +70,8 @@ hostname="#($SCRIPTS_PATH/hostname-widget.sh)"
 os_icon="#($SCRIPTS_PATH/os-icons.sh)"
 
 #+--- Bars LEFT ---+
-# OS icon + Session name with powerline separator
-tmux set -g status-left "#[fg=${THEME[bblack]},bg=${THEME[blue]},bold] $os_icon#{?client_prefix,󰠠 ,}#S$hostname #[fg=${THEME[blue]},bg=${THEME[background]},nobold]"
+# OS icon + Session name with powerline separator (teal to match lualine)
+tmux set -g status-left "#[fg=${THEME[bblack]},bg=#2DA099,bold] $os_icon#{?client_prefix,󰠠 ,}#S$hostname #[fg=#2DA099,bg=${THEME[background]},nobold]"
 
 #+--- Windows ---+
 # Focus (active window with pill shape - slightly lighter bg for visibility)
