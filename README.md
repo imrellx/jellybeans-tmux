@@ -6,17 +6,26 @@ Fork of [tokyo-night-tmux](https://github.com/janoamaral/tokyo-night-tmux) with 
 
 ## Color Palette
 
-| Color    | Hex       | Usage              |
-|----------|-----------|-------------------|
-| Background | `#100f0f` | Flexoki black     |
-| Foreground | `#e8e8d3` | Jellybeans fg     |
-| Blue     | `#8197bf` | Accents, borders  |
-| Green    | `#99ad6a` | Success, git      |
-| Yellow   | `#dad085` | Warnings          |
-| Red      | `#B05050` | Errors            |
-| Orange   | `#cf6a4c` | Highlights        |
-| Magenta  | `#c6b6ee` | Special           |
-| Cyan     | `#2B5B77` | Info              |
+| Color    | Hex       | Usage                    |
+|----------|-----------|--------------------------|
+| Background | `#100f0f` | Flexoki black          |
+| Foreground | `#e8e8d3` | Jellybeans fg          |
+| Teal     | `#2DA099` | Session pill, text     |
+| Blue     | `#8197bf` | Accents, borders       |
+| Green    | `#99ad6a` | Success, git icons     |
+| Yellow   | `#dad085` | Warnings, changes      |
+| Red      | `#B05050` | Errors, deletions      |
+| Orange   | `#cf6a4c` | Highlights             |
+| Magenta  | `#c6b6ee` | Special                |
+| Cyan     | `#2B5B77` | Info                   |
+
+## Features
+
+- **Powerline separators** - Pill-shaped status elements with smooth transitions
+- **Git status** - Branch name, sync status, insertions/deletions
+- **OS icon** - Auto-detected Apple/Linux/Windows icon
+- **Path widget** - Current directory with folder icon
+- **Lualine-compatible colors** - Teal accent matches Neovim lualine
 
 ## Requirements
 
@@ -143,8 +152,10 @@ set -g @jellybeans-tmux_show_datetime 0
 set -g @jellybeans-tmux_show_path 1
 set -g @jellybeans-tmux_path_format relative
 set -g @jellybeans-tmux_window_id_style dsquare
-set -g @jellybeans-tmux_show_git 0
+set -g @jellybeans-tmux_show_git 1
 ```
+
+This gives you a minimal status bar with path and git info, matching Neovim's lualine aesthetic.
 
 ## Credits
 
