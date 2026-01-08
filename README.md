@@ -1,8 +1,8 @@
 # Jellybeans Tmux
 
-A clean, dark Tmux theme using the classic [Jellybeans](https://github.com/WTFox/jellybeans.nvim) color palette with [Flexoki's](https://github.com/kepano/flexoki) inky black background.
+A clean, minimal Tmux theme using the classic [Jellybeans](https://github.com/WTFox/jellybeans.nvim) color palette with [Flexoki's](https://github.com/kepano/flexoki) inky black background.
 
-Fork of [tokyo-night-tmux](https://github.com/janoamaral/tokyo-night-tmux) with recolored palette.
+Fork of [tokyo-night-tmux](https://github.com/janoamaral/tokyo-night-tmux), simplified and recolored.
 
 ## Color Palette
 
@@ -21,8 +21,8 @@ Fork of [tokyo-night-tmux](https://github.com/janoamaral/tokyo-night-tmux) with 
 
 ## Features
 
-- **Powerline separators** - Pill-shaped status elements with smooth transitions
-- **Git status** - Branch name, sync status, insertions/deletions
+- **Powerline separators** - Pill-shaped status elements
+- **Git status** - Branch name, sync status
 - **OS icon** - Auto-detected Apple/Linux/Windows icon
 - **Path widget** - Current directory with folder icon
 - **Lualine-compatible colors** - Teal accent matches Neovim lualine
@@ -31,17 +31,6 @@ Fork of [tokyo-night-tmux](https://github.com/janoamaral/tokyo-night-tmux) with 
 
 - Any patched [Nerd Font](https://www.nerdfonts.com/) (v3+)
 - Bash 4.2 or newer
-
-Optional for widgets:
-- `bc` (netspeed widget)
-- `gh` or `glab` (git widgets)
-- `playerctl` (Linux) or `nowplaying-cli` (macOS) for music
-
-### macOS
-
-```bash
-brew install bash bc coreutils gawk gh gsed jq nowplaying-cli
-```
 
 ## Installation
 
@@ -80,14 +69,6 @@ set -g @jellybeans-tmux_zoom_id_style dsquare
 
 ### Widgets
 
-#### Date/Time (enabled by default)
-
-```bash
-set -g @jellybeans-tmux_show_datetime 0    # Disable
-set -g @jellybeans-tmux_date_format YMD    # YMD|MDY|DMY
-set -g @jellybeans-tmux_time_format 24H    # 24H|12H
-```
-
 #### Path
 
 ```bash
@@ -99,40 +80,6 @@ set -g @jellybeans-tmux_path_format relative  # relative|full
 
 ```bash
 set -g @jellybeans-tmux_show_git 1
-```
-
-#### Web Git (GitHub/GitLab)
-
-```bash
-set -g @jellybeans-tmux_show_wbg 1
-```
-
-#### Battery
-
-```bash
-set -g @jellybeans-tmux_show_battery_widget 1
-set -g @jellybeans-tmux_battery_name "BAT1"
-set -g @jellybeans-tmux_battery_low_threshold 21
-```
-
-#### Network Speed
-
-```bash
-set -g @jellybeans-tmux_show_netspeed 1
-set -g @jellybeans-tmux_netspeed_iface "en0"
-set -g @jellybeans-tmux_netspeed_showip 1
-```
-
-#### Music
-
-```bash
-set -g @jellybeans-tmux_show_music 1
-```
-
-#### Hostname
-
-```bash
-set -g @jellybeans-tmux_show_hostname 1
 ```
 
 ### Window Icons
@@ -148,7 +95,6 @@ set -g @jellybeans-tmux_window_tidy_icons 0
 ```bash
 set -g @plugin 'imrellx/jellybeans-tmux'
 
-set -g @jellybeans-tmux_show_datetime 0
 set -g @jellybeans-tmux_show_path 1
 set -g @jellybeans-tmux_path_format relative
 set -g @jellybeans-tmux_window_id_style dsquare
